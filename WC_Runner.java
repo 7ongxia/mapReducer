@@ -13,7 +13,7 @@ import org.apache.hadoop.mapred.TextOutputFormat;
 public class WC_Runner {
     public static void main(String[] args) throws IOException {
         JobConf conf = new JobConf(WC_Runner.class);
-        conf.setJobName("UrlMapReducer");
+        conf.setJobName("Assignment_5");
         conf.setOutputKeyClass(Text.class);
         conf.setOutputValueClass(Text.class);
         conf.setMapperClass(WC_Mapper.class);
