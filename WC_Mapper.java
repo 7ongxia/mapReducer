@@ -14,12 +14,13 @@ public class WC_Mapper extends MapReduceBase implements Mapper<LongWritable, Tex
 
     public void map(LongWritable key, Text value, OutputCollector<Text, Text> output,
                     Reporter reporter) throws IOException {
-        // skip the first line if it starts with "header"
         if (key.get() == 0) {
             return;
         }
 
-        outKey.set(value.toString().split("/")[0]);
+        String[] columns = value.toString().split("\t");
+        outKey.set(columns[0] + "\t" + columns[1]);
+        outValue.set(columns[2].split("/")[0]);
 
         output.collect(outKey, outValue);
     }
